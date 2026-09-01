@@ -241,10 +241,167 @@
   .sheet-item .snm{flex:1;font-size:14.5px}
   .sheet-item .ssc{font-family:var(--mono);font-size:11px;color:var(--faint)}
   .data-body{display:flex;gap:9px;padding:6px 16px 10px}
+
+  #view-wb{
+    --bg:#16181D; --surface:#1E2128; --surface-2:#252934; --edge:#363B47;
+    --text:#E8E6E1; --muted:#9097A4; --faint:#646B78;
+    --amber:#E0903C; --amber-dim:#9c6628;
+    --str:#D8443B; --glute:#E59E8E; --cond:#3FA6A0; --run:#E0683C; --walk:#6FB07A;
+    --good:#5FB87A;
+    --disp:'Saira Condensed',-apple-system,system-ui,sans-serif;
+    --body:'Inter',-apple-system,system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  #view-wb *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  #view-wb html, #view-wb body{height:100%}
+  #view-wb body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.4;
+    overscroll-behavior-y:none;padding-bottom:env(safe-area-inset-bottom)}
+  #view-wb .app{max-width:520px;margin:0 auto;min-height:100%;padding-bottom:40px}
+
+  #view-wb header{position:sticky;top:0;z-index:30;background:rgba(22,24,29,.93);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--edge);padding:14px 16px 0;padding-top:calc(14px + env(safe-area-inset-top))}
+  #view-wb .brand{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+  #view-wb .brand h1{font-family:var(--disp);font-weight:700;letter-spacing:.04em;font-size:22px;text-transform:uppercase}
+  #view-wb .brand h1 span{color:var(--amber)}
+  #view-wb .brand .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-family:var(--mono)}
+
+  #view-wb .days{display:flex;gap:6px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none}
+  #view-wb .days::-webkit-scrollbar{display:none}
+  #view-wb .day-tab{flex:0 0 auto;border:1px solid var(--edge);background:var(--surface);border-radius:10px;
+    padding:8px 11px;min-width:76px;cursor:pointer;transition:.15s}
+  #view-wb .day-tab.active{border-color:var(--amber);background:var(--surface-2)}
+  #view-wb .day-tab .dnum{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--faint)}
+  #view-wb .day-tab.active .dnum{color:var(--amber)}
+  #view-wb .day-tab .dname{font-family:var(--disp);font-weight:600;font-size:14px;letter-spacing:.02em;white-space:nowrap}
+
+  #view-wb details.panel{margin:14px 16px 0;border:1px solid var(--edge);border-radius:14px;overflow:hidden;background:var(--surface)}
+  #view-wb details.panel summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;align-items:center;
+    justify-content:space-between;font-weight:600;font-size:14px}
+  #view-wb details.panel summary::-webkit-details-marker{display:none}
+  #view-wb details.panel summary .chev{color:var(--faint);font-size:13px;transition:.2s}
+  #view-wb details.panel[open] summary .chev{transform:rotate(180deg)}
+  #view-wb details.panel summary .lbl{display:flex;align-items:center;gap:9px}
+  #view-wb details.panel summary .lbl em{font-style:normal;color:var(--faint);font-family:var(--mono);font-size:11px;letter-spacing:.05em}
+  #view-wb .pbody{padding:2px 16px 15px;font-size:13px;color:var(--muted);line-height:1.6}
+  #view-wb .pbody b{color:var(--text);font-weight:600}
+  #view-wb .pbody .k{color:var(--amber);font-weight:600;font-family:var(--mono);font-size:12px}
+
+  #view-wb .weekrow{display:flex;align-items:center;justify-content:center;gap:16px;padding:10px 16px 6px}
+  #view-wb .weekrow button{width:46px;height:46px;border-radius:12px;border:1px solid var(--edge);background:var(--surface-2);color:var(--text);font-size:17px;font-family:var(--mono);cursor:pointer}
+  #view-wb .weekrow button:active{background:var(--bg)}
+  #view-wb .weekrow .wknum{font-family:var(--disp);font-weight:600;font-size:20px;min-width:150px;text-align:center}
+  #view-wb .weekrow .wknum span{color:var(--amber)}
+  #view-wb .phase{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:0 16px 12px}
+  #view-wb .phase b{color:var(--amber);font-weight:600}
+
+  #view-wb .gh{display:inline-block;margin-top:5px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--amber);text-decoration:none;border:1px solid var(--amber-dim);border-radius:7px;padding:3px 8px}
+  #view-wb .gh:active{background:var(--surface-2)}
+  #view-wb .maxgrid{padding:2px 16px 15px;display:flex;flex-direction:column;gap:8px}
+  #view-wb .maxrow{display:flex;align-items:center;gap:10px}
+  #view-wb .maxrow .ml{flex:1;font-size:13px;color:var(--text)}
+  #view-wb .maxrow input{width:88px;background:var(--surface-2);border:1px solid var(--edge);border-radius:9px;color:var(--text);font-family:var(--mono);font-size:15px;padding:8px 10px;text-align:right}
+  #view-wb .maxrow input:focus{outline:none;border-color:var(--amber)}
+  #view-wb .maxrow .mu{font-family:var(--mono);font-size:12px;color:var(--faint);width:18px}
+
+  #view-wb .session{padding:16px 16px 0}
+  #view-wb .sess-head{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+  #view-wb .sess-head .ttl{font-family:var(--disp);font-weight:600;font-size:21px;letter-spacing:.02em}
+  #view-wb .pill{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:3px 8px;border-radius:5px;color:#11131a;font-weight:600;flex:0 0 auto}
+  #view-wb .pill.str{background:var(--str)} #view-wb .pill.glute{background:var(--glute)} #view-wb .pill.cond{background:var(--cond)}
+  #view-wb .pill.run{background:var(--run)} #view-wb .pill.walk{background:var(--walk)}
+  #view-wb .tbadge{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--faint);border:1px solid var(--edge);border-radius:7px;padding:3px 8px}
+  #view-wb .sess-note{font-size:12.5px;color:var(--muted);margin:6px 0 14px;line-height:1.5}
+
+  #view-wb .block{margin-bottom:13px}
+  #view-wb .block-h{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  #view-wb .block-h .bt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  #view-wb .block-h .ln{height:1px;background:var(--edge);flex:1}
+
+  
+  #view-wb .pair{background:var(--surface);border:1px solid var(--edge);border-radius:14px;padding:11px 13px 12px;margin-bottom:9px}
+  #view-wb .pairtag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--cond);margin-bottom:9px}
+  #view-wb .ex{display:flex;align-items:baseline;gap:9px;padding:5px 0}
+  #view-wb .ex+.ex{border-top:1px solid var(--edge)}
+  #view-wb .ex .lead{font-family:var(--mono);font-weight:600;font-size:12px;color:var(--faint);width:20px;flex:0 0 auto}
+  #view-wb .ex .nm{font-family:var(--disp);font-weight:600;font-size:16.5px;letter-spacing:.01em;line-height:1.15;flex:1}
+  #view-wb .ex .gt{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:#1a1014;background:var(--glute);border-radius:4px;padding:2px 5px;margin-left:6px;vertical-align:1px;text-transform:uppercase}
+  #view-wb .ex .pt{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;color:var(--muted);background:var(--surface-2);border:1px solid var(--edge);border-radius:4px;padding:2px 5px;margin-left:6px;vertical-align:1px;text-transform:uppercase}
+  #view-wb .ex .rx{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--text);white-space:nowrap;text-align:right}
+  #view-wb .ex .rx .pc{color:var(--amber)}
+  #view-wb .ex .rx.anchor{color:var(--amber)}
+
+  #view-wb .card{background:var(--surface);border:1px solid var(--edge);border-radius:14px;padding:13px 14px;margin-bottom:9px}
+  #view-wb .card.metcon{background:var(--surface-2)}
+  #view-wb .card .cap{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cond);margin-bottom:6px}
+  #view-wb .card .nm{font-family:var(--disp);font-weight:600;font-size:17px;letter-spacing:.01em;line-height:1.15}
+  #view-wb .card .movelist{font-size:13.5px;color:var(--text);line-height:1.75}
+  #view-wb .card .movelist .r{font-family:var(--mono);color:var(--amber);font-size:12.5px}
+  #view-wb .card .sub{font-size:11.5px;color:var(--faint);margin-top:7px;line-height:1.5}
+  #view-wb .simple{font-size:13.5px;color:var(--text);line-height:1.6}
+  #view-wb .simple.m{color:var(--muted)}
+  #view-wb .bigk{font-family:var(--mono);font-weight:600;font-size:30px;color:var(--amber);line-height:1}
+  #view-wb .bigk small{font-size:13px;color:var(--faint);font-weight:500}
+
+  #view-wb .note-rule{font-size:11.5px;color:var(--muted);background:rgba(224,144,60,.07);border:1px solid var(--amber-dim);
+    border-radius:10px;padding:9px 11px;margin-bottom:11px;line-height:1.5}
+  #view-wb .note-rule b{color:var(--amber)}
+
+  #view-wb .ptable{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px;margin-top:4px}
+  #view-wb .ptable th, #view-wb .ptable td{padding:6px 4px;text-align:center;border-bottom:1px solid var(--edge)}
+  #view-wb .ptable th{color:var(--faint);font-weight:600;font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+  #view-wb .ptable td:first-child, #view-wb .ptable th:first-child{text-align:left;color:var(--text);white-space:nowrap;padding-left:2px}
+  #view-wb .ptable td{color:var(--muted)}
+  #view-wb .ptable tr.hot td{color:var(--amber);background:rgba(224,144,60,.08)}
+
+  #view-wb .foot{padding:20px 16px 8px;font-size:11px;color:var(--faint);line-height:1.7;text-align:center}
+  #view-wb .foot b{color:var(--muted);font-weight:600}
+  #view-wb .legend{display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:center;margin-bottom:12px}
+  #view-wb .lg{display:flex;align-items:center;gap:5px;font-family:var(--mono);font-size:10px;letter-spacing:.04em}
+  #view-wb .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+  
+  #view-wb .wl{display:flex;align-items:center;gap:8px;margin:8px 0 2px;padding-top:9px;border-top:1px solid var(--edge)}
+  #view-wb .wl-w{width:74px;background:var(--surface-2);border:1px solid var(--edge);border-radius:9px;color:var(--text);font-family:var(--mono);font-size:15px;padding:7px 9px;text-align:right}
+  #view-wb .wl-w:focus{outline:none;border-color:var(--amber)}
+  #view-wb .wl-wu{font-family:var(--mono);font-size:11px;color:var(--faint);margin-right:2px}
+  #view-wb .wl-chips{display:flex;gap:6px;margin-left:auto}
+  #view-wb .wl-chip{min-width:44px;height:44px;border-radius:10px;border:1.5px solid var(--edge);background:none;color:var(--muted);font-family:var(--mono);font-weight:600;font-size:16px;cursor:pointer}
+  #view-wb .wl-chip.done{background:rgba(95,184,122,.14);border-color:var(--good);color:var(--good)}
+  #view-wb .wl-last{font-family:var(--mono);font-size:10.5px;color:var(--faint);margin:1px 0 2px 2px}
+  #view-wb .wl-done{width:100%;margin-top:10px;padding:11px;border-radius:11px;border:1.5px solid var(--edge);background:none;color:var(--muted);font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:.02em;cursor:pointer}
+  #view-wb .wl-done.done{background:rgba(95,184,122,.14);border-color:var(--good);color:var(--good)}
+  #view-wb .wl-bar{display:flex;align-items:center;gap:10px;padding:0 16px 12px;flex-wrap:wrap}
+  #view-wb .wl-timer{display:flex;align-items:center;gap:6px}
+  #view-wb .wl-timer button{width:40px;height:36px;border-radius:9px;border:1px solid var(--edge);background:var(--surface);color:var(--muted);font-family:var(--mono);font-size:13px;cursor:pointer}
+  #view-wb .wl-timer button:active{background:var(--surface-2)}
+  #view-wb .wl-tdisp{font-family:var(--mono);font-size:13px;color:var(--faint);min-width:58px}
+  #view-wb .wl-tdisp.run{color:var(--amber)}
+  #view-wb .wl-reset{margin-left:auto;padding:7px 12px;border-radius:9px;border:1px solid var(--edge);background:var(--surface);color:var(--muted);font-family:var(--mono);font-size:12px;cursor:pointer}
+  #view-wb .wl-pop{position:fixed;inset:0;z-index:60;background:rgba(10,11,14,.72);display:none;align-items:center;justify-content:center;padding:24px}
+  #view-wb .wl-pop.show{display:flex}
+  #view-wb .wl-card{background:var(--surface);border:1px solid var(--edge);border-radius:18px;padding:22px;width:100%;max-width:300px;text-align:center}
+  #view-wb .wl-card h3{font-family:var(--disp);font-weight:600;font-size:20px;margin-bottom:16px}
+  #view-wb .wl-step{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:18px}
+  #view-wb .wl-step button{width:54px;height:54px;border-radius:14px;border:1px solid var(--edge);background:var(--surface-2);color:var(--text);font-size:24px;font-family:var(--mono);cursor:pointer}
+  #view-wb .wl-val{font-family:var(--mono);font-weight:600;font-size:30px;min-width:64px}
+  #view-wb .wl-save{width:100%;padding:13px;border:none;border-radius:12px;background:var(--amber);color:#161018;font-family:var(--disp);font-weight:700;font-size:16px;letter-spacing:.03em;cursor:pointer;margin-bottom:8px}
+  #view-wb .wl-clear{width:100%;padding:10px;border:1px solid var(--edge);border-radius:12px;background:none;color:var(--faint);font-family:var(--mono);font-size:12px;cursor:pointer}
+
+  /* program switcher (bottom tab bar) */
+  .view{padding-bottom:86px !important}
+  .progswitch{position:fixed;left:0;right:0;bottom:0;max-width:520px;margin:0 auto;display:flex;gap:6px;
+    background:rgba(22,24,29,.96);backdrop-filter:blur(10px);border-top:1px solid var(--edge);
+    padding:8px 12px calc(8px + env(safe-area-inset-bottom));z-index:45}
+  .progswitch button{flex:1;padding:11px 8px;border:1px solid var(--edge);border-radius:11px;background:var(--surface);
+    color:var(--muted);font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;cursor:pointer}
+  .progswitch button.on{border-color:var(--amber);background:var(--surface-2);color:var(--amber)}
+  .progswitch button small{display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:9px;letter-spacing:.1em;color:var(--faint);margin-top:2px;text-transform:uppercase}
+  .progswitch button.on small{color:var(--amber-dim)}
+
 </style>
 </head>
 <body>
-<div class="app">
+<div class="app view" id="view-gz">
   <header>
     <div class="brand">
       <h1>BARBELL<span>·</span>LOG</h1>
@@ -332,6 +489,93 @@
     <button class="tbtn stop" id="tstop">Stop</button>
   </div>
   <button class="logbtn" id="logBtn" disabled>Log</button>
+</div>
+
+
+<div class="app view" id="view-wb" style="display:none">
+  <header>
+    <div class="brand">
+      <h1>WHOLE<span>·</span>BODY</h1>
+      <div style="text-align:right">
+        <div class="tag">8 WK · 5 PATTERN DAYS</div>
+        <!-- Set your Barbell Log URL in the href below -->
+        <a class="gh" id="wb_ghLink" href="https://github.com/julesbris/barbell" target="_blank" rel="noopener">↗ Barbell Log</a>
+      </div>
+    </div>
+    <div class="days" id="wb_days"></div>
+  </header>
+
+  <details class="panel" id="wb_overview" open>
+    <summary><span class="lbl">How this block runs <em>read once</em></span><span class="chev">▾</span></summary>
+    <div class="pbody">
+      Built for a small gym — barbell, dumbbells, a kettlebell, a bench and cables/bands is all you need.
+      Five whole-body days, each covering the <b>five movement patterns</b> — squat, hinge, horizontal push, horizontal pull, and a vertical push or pull — with <b>one exercise per pattern for 2 working sets of 7</b>.
+      The selection rotates day to day (barbell, dumbbell, machine, unilateral) so nothing gets stale and both vertical push and pull get covered across the week. Then <b>Saturday long run</b> and <b>Sunday long walk</b>.
+      <br><br>
+      Everything stays in <b>alternating supersets</b> (a set, ~75 s, the paired move, ~75 s) so the strength work lands in about <b>38–42 minutes</b>. A <b>glute</b> move and a <b>functional</b> finisher (carries, swings, sled) go in every day — glutes get worked all five sessions — plus a loaded core piece for a tighter middle.
+      <br><br>
+      Each day also carries an <b>optional 12-minute conditioning finisher</b> (sprints or machine intervals) — do it when time and legs allow, aiming for ~3×/week alongside the Saturday run. With it, a session is ~50–52 min. The modality is picked to protect recovery: machine sprints on the heavy squat days, running sprints only on the lighter day.
+      <br><br>
+      <b>Low volume, high frequency:</b> 2×7 per pattern isn't much in one session, but ×5 days it adds up to solid weekly volume while staying fresh. Keep 1–3 reps in reserve — this is not a to-failure programme.
+      <br><br>
+      <b>8-week wave:</b> the sets/reps stay <b>2 × 7</b> throughout; the <span class="k">week</span> just moves the RPE — <span class="k">Wk 1–3</span> build, <span class="k">Wk 4</span> back-off, <span class="k">Wk 5–7</span> build to a peak, <span class="k">Wk 8</span> deload. Add load when a weight feels below the target RPE.
+    </div>
+  </details>
+
+  <details class="panel" id="wb_blockPanel" open>
+    <summary><span class="lbl">Week <em>sets the RPE + run</em></span><span class="chev">▾</span></summary>
+    <div class="weekrow"><button id="wb_wkDown" type="button">◀</button><div class="wknum">Week <span id="wb_wkVal">1</span> / 8</div><button id="wb_wkUp" type="button">▶</button></div>
+    <div class="phase" id="wb_phaseLbl"></div>
+  </details>
+
+  <details class="panel" id="wb_maxPanel">
+    <summary><span class="lbl">Your 1RMs <em>for target loads</em></span><span class="chev">▾</span></summary>
+    <div class="pbody" style="padding-bottom:6px">Enter your one-rep max for the barbell lifts. Those pattern rows then show a target weight for the week (from an RPE-to-% estimate at 7 reps, rounded to 2.5&nbsp;kg). Leave blank to just train by RPE. Treat the number as a starting point and adjust to feel.</div>
+    <div class="maxgrid" id="wb_maxGrid"></div>
+  </details>
+
+  <div class="session">
+    <div class="sess-head"><div class="ttl" id="wb_sessTitle">—</div><span class="pill" id="wb_sessPill"></span><span class="tbadge" id="wb_tbadge" style="display:none"></span></div>
+    <div class="sess-note" id="wb_sessNote"></div>
+    <div class="wl-bar">
+      <div class="wl-timer" id="wlTimer"><button type="button" data-sec="60">60</button><button type="button" data-sec="75">75</button><button type="button" data-sec="90">90</button><span class="wl-tdisp" id="wlTdisp">rest</span></div>
+      <button class="wl-reset" id="wlReset" type="button">⟲ Reset day</button>
+    </div>
+    <div id="wb_cards"></div>
+  </div>
+
+  <details class="panel" id="wb_progPanel">
+    <summary><span class="lbl">Progression <em>all 8 weeks</em></span><span class="chev">▾</span></summary>
+    <div class="pbody" style="padding-bottom:6px"><b>Primary patterns</b> — 2 × 7 every day, RPE by week</div>
+    <div style="padding:0 14px 4px"><div id="wb_waveTable"></div></div>
+    <div class="pbody" style="padding:10px 16px 6px"><b>Saturday long run</b> — easy, conversational</div>
+    <div style="padding:0 14px 14px"><div id="wb_runTable"></div></div>
+  </details>
+
+  <details class="panel" id="wb_mcPanel">
+    <summary><span class="lbl">Daily selection <em>pick one per pattern</em></span><span class="chev">▾</span></summary>
+    <div class="pbody" id="wb_mcBody"></div>
+  </details>
+
+  <div class="foot">
+    <div class="legend">
+      <span class="lg"><span class="sw" style="background:var(--str)"></span>Pattern day</span>
+      <span class="lg"><span class="sw" style="background:var(--glute)"></span>Glute</span>
+      <span class="lg"><span class="sw" style="background:var(--cond)"></span>Functional</span>
+      <span class="lg"><span class="sw" style="background:var(--run)"></span>Run</span>
+      <span class="lg"><span class="sw" style="background:var(--walk)"></span>Walk</span>
+    </div>
+    <b>Supersets:</b> alternate the two moves, rest ~75&nbsp;s between · <b>Patterns:</b> 2 × 7, leave reps in reserve · <b>Progress:</b> add load when it's below RPE.
+  </div>
+
+  <div class="wl-pop" id="wlPop">
+    <div class="wl-card">
+      <h3 id="wlTitle">Reps done</h3>
+      <div class="wl-step"><button type="button" id="wlMinus">−</button><div class="wl-val" id="wlVal">7</div><button type="button" id="wlPlus">+</button></div>
+      <button class="wl-save" id="wlSave" type="button">Save set</button>
+      <button class="wl-clear" id="wlClear" type="button">Clear set</button>
+    </div>
+  </div>
 </div>
 
 <div class="sheet" id="swapSheet"><div class="sheet-card"><div class="sheet-head"><span id="sheetTitle">Swap exercise</span><button class="sheet-x" id="sheetX" type="button">✕</button></div><div class="sheet-actions" id="sheetActions"></div><div class="sheet-list" id="sheetList"></div></div></div>
@@ -862,6 +1106,349 @@
   }
   function dismiss(){var e=document.getElementById('a2hs');if(e)e.remove();try{localStorage.setItem('bl:a2hs','x');}catch(_){}}
   if(isiOS)setTimeout(function(){show('ios');},800);
+})();
+</script>
+
+<nav class="progswitch" id="progswitch">
+  <button type="button" data-v="gz" class="on">Barbell Log<small>GZCL · log</small></button>
+  <button type="button" data-v="wb">Whole-Body<small>8-wk · patterns</small></button>
+</nav>
+<script>
+
+(function(){
+  "use strict";
+
+  /* primary patterns run 2×7 every day; the wave just moves the RPE + load. index 0 = Wk1 */
+  var WAVE=[
+    {s:2,r:"7",rpe:"7",note:"ease in — 3 in reserve"},
+    {s:2,r:"7",rpe:"7.5"},
+    {s:2,r:"7",rpe:"8"},
+    {s:2,r:"7",rpe:"7",note:"back-off — same 2×7, drop the load"},
+    {s:2,r:"7",rpe:"8"},
+    {s:2,r:"7",rpe:"8.5"},
+    {s:2,r:"7",rpe:"8.5",note:"top of the block — still 1 in reserve"},
+    {s:2,r:"7",rpe:"6",note:"deload"}
+  ];
+  var PHASE=["Build","Build","Build","Back-off","Build","Peak","Peak","Deload"];
+  var RUN=[5,6,7,8,8,9,10,6]; // km, Saturday
+
+  function rx(w){var x=WAVE[w-1];return x.s+" × "+x.r+" · RPE "+x.rpe;}
+
+  /* 1RM → target load. RPE-to-%1RM estimate at 7 reps (RTS-style chart) */
+  var PCT={"6":0.658,"7":0.691,"7.5":0.707,"8":0.723,"8.5":0.739,"9":0.755};
+  var MAXKEYS=[["squat","Back Squat"],["bench","Bench Press"],["rdl","Romanian Deadlift"],["row","Barbell Row"],["ohp","Overhead Press"]];
+  var MAXES=(function(){try{return JSON.parse(localStorage.getItem("wb_maxes")||"{}");}catch(e){return {};}})();
+  function saveMaxes(){try{localStorage.setItem("wb_maxes",JSON.stringify(MAXES));}catch(e){}}
+  function round2(x){return Math.round(x/2.5)*2.5;}
+  function computeLoad(mk){
+    var m=MAXES[mk];if(!m)return null;
+    var p=PCT[WAVE[WEEK-1].rpe];if(!p)return null;
+    return round2(m*p);
+  }
+  function renderMaxes(){
+    var g=document.getElementById("wb_maxGrid");if(!g)return;g.innerHTML="";
+    MAXKEYS.forEach(function(k){
+      var wrap=document.createElement("div");wrap.className="maxrow";
+      var lab=document.createElement("span");lab.className="ml";lab.textContent=k[1];wrap.appendChild(lab);
+      var inp=document.createElement("input");inp.type="number";inp.inputMode="decimal";inp.min="0";inp.step="2.5";inp.placeholder="—";
+      if(MAXES[k[0]])inp.value=MAXES[k[0]];
+      inp.oninput=function(){var v=parseFloat(inp.value);if(v>0)MAXES[k[0]]=v;else delete MAXES[k[0]];saveMaxes();renderDay();};
+      wrap.appendChild(inp);
+      var mu=document.createElement("span");mu.className="mu";mu.textContent="kg";wrap.appendChild(mu);
+      g.appendChild(wrap);
+    });
+  }
+
+  /* ---------- logger ---------- */
+  var LOG={};
+  function wlKey(){return "wb:log:w"+WEEK+":d"+cur;}
+  function loadLog(){try{return JSON.parse(localStorage.getItem(wlKey())||"{}");}catch(e){return {};}}
+  function saveLog(){try{localStorage.setItem(wlKey(),JSON.stringify(LOG));}catch(e){}}
+  function ensureEx(ex){if(!LOG[ex])LOG[ex]={w:null,sets:[]};return LOG[ex];}
+  function ensureSet(ex,s){var r=ensureEx(ex);while(r.sets.length<=s)r.sets.push({done:false,reps:null});return r.sets[s];}
+  function parseSets(it){
+    if(it[2]==="P")return {n:2,tgt:7};
+    var m=/(\d+)\s*[\u00d7x]\s*([0-9]+)/.exec(it[2]);
+    if(m)return {n:+m[1],tgt:+m[2]};
+    return {n:2,tgt:0};
+  }
+  function lastHint(ex){
+    if(WEEK<=1)return "";
+    try{var p=JSON.parse(localStorage.getItem("wb:log:w"+(WEEK-1)+":d"+cur)||"{}");var r=p[ex];if(!r)return "";
+      var reps=(r.sets||[]).map(function(x){return x&&x.reps!=null?x.reps:"\u2013";}).join(",");
+      var w=(r.w!=null?r.w+"kg ":"");
+      if(!w && !/[0-9]/.test(reps))return "";
+      return "last wk: "+w+reps;}catch(e){return "";}
+  }
+  function logBlock(it,ex){
+    var ps=parseSets(it),rec=LOG[ex]||{w:null,sets:[]},mk=it[4];
+    var place=mk?(computeLoad(mk)||""):"";
+    var wv=(rec.w!=null?rec.w:"");
+    var chips="";
+    for(var s=0;s<ps.n;s++){var sd=rec.sets[s]||{};var done=sd.done;
+      var lbl=done?(sd.reps!=null?sd.reps:"\u2713"):(s+1);
+      chips+='<button class="wl-chip'+(done?" done":"")+'" data-ex="'+ex+'" data-set="'+s+'" data-tgt="'+ps.tgt+'">'+lbl+'</button>';}
+    var last=lastHint(ex);
+    return '<div class="wl"><input class="wl-w" type="number" inputmode="decimal" step="2.5" placeholder="'+(place!==""?place:"kg")+'" value="'+wv+'" data-ex="'+ex+'"><span class="wl-wu">kg</span><div class="wl-chips">'+chips+'</div></div>'+(last?'<div class="wl-last">'+last+'</div>':'');
+  }
+  function doneChip(ex,label){
+    var rec=LOG[ex],done=rec&&rec.sets&&rec.sets[0]&&rec.sets[0].done;
+    return '<button class="wl-done'+(done?" done":"")+'" data-done="'+ex+'">'+(done?"\u2713 Done":label)+'</button>';
+  }
+  function attachLog(){
+    var root=document.getElementById("wb_cards");
+    root.querySelectorAll(".wl-w").forEach(function(inp){
+      inp.addEventListener("change",function(){var v=parseFloat(inp.value);ensureEx(inp.dataset.ex).w=isNaN(v)?null:v;saveLog();});
+    });
+    root.querySelectorAll(".wl-chip").forEach(function(ch){
+      ch.addEventListener("click",function(){openReps(ch.dataset.ex,+ch.dataset.set,+ch.dataset.tgt);});
+    });
+    root.querySelectorAll(".wl-done").forEach(function(b){
+      b.addEventListener("click",function(){var st=ensureSet(b.dataset.done,0);st.done=!st.done;if(!st.done)st.reps=null;saveLog();renderDay();});
+    });
+  }
+  var repsCtx=null, repCount=7;
+  function openReps(ex,s,tgt){
+    repsCtx={ex:ex,s:s};
+    var sd=(LOG[ex]&&LOG[ex].sets[s])||{};
+    repCount=(sd.reps!=null?sd.reps:(tgt||7));
+    document.getElementById("wlVal").textContent=repCount;
+    document.getElementById("wlTitle").textContent="Reps \u00b7 set "+(s+1);
+    document.getElementById("wlPop").classList.add("show");
+  }
+  function closeReps(){document.getElementById("wlPop").classList.remove("show");repsCtx=null;}
+
+  /* item: [lead, name, rx, chip] — rx="P" is a pattern (2×7 @ week RPE); chip labels the pattern, "Glute" styles pink */
+  var DAYS=[
+    {n:"Day 1",tab:"Barbell A",pill:"str",glutePill:true,time:"40–55 min",
+     note:"All five patterns, barbell selection. Squat + hinge are heaviest today; the glute move is the hip thrust.",
+     warm:"5 min: bike/row, banded hips, empty-bar squat, hinge &amp; press.",
+     pairs:[
+       {tag:"Superset 1",items:[["A1","Barbell Back Squat","P","Squat","squat"],["A2","Barbell Bench Press","P","Push","bench"]]},
+       {tag:"Superset 2",items:[["B1","Romanian Deadlift","P","Hinge","rdl"],["B2","Barbell Row","P","Pull","row"]]},
+       {tag:"Superset 3",items:[["C1","Overhead Press","P","Vert","ohp"],["C2","Barbell Hip Thrust","2 × 12","Glute"]]}
+     ],
+     finish:["Farmer carry <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 30 m</span> heavy","Hanging leg raise <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12</span>"],
+     cond12:{cap:"Conditioning · 12 min · if time",title:"Bike / row sprints",lines:["12 min — <span class='r'>30 s</span> hard / <span class='r'>30 s</span> easy","machine, not running — legs already squatted"],sub:"Optional finisher. Keep the hard efforts strong, not sloppy."}},
+
+    {n:"Day 2",tab:"Dumbbell",pill:"str",glutePill:true,time:"40–55 min",
+     note:"Dumbbell + unilateral selection — lower spinal load after Day 1. Vertical is a pull today.",
+     warm:"5 min: bike/row, leg swings, goblet squat, band pull-aparts.",
+     pairs:[
+       {tag:"Superset 1",items:[["A1","Goblet Squat","P","Squat"],["A2","DB Bench Press","P","Push"]]},
+       {tag:"Superset 2",items:[["B1","Single-Leg RDL","P","Hinge"],["B2","Seated Cable Row","P","Pull"]]},
+       {tag:"Superset 3",items:[["C1","Lat Pulldown","P","Vert"],["C2","Cable Hip Abduction","2 × 15 / side","Glute"]]}
+     ],
+     finish:["KB swing <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 15</span>","Pallof press <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12 / side</span>"],
+     cond12:{cap:"Conditioning · 12 min · if time",title:"Run sprints",lines:["<span class='r'>8 × 20 s</span> hard run","walk back / ~70 s between"],sub:"Lighter leg day — the best slot for true running sprints. Full effort each rep."}},
+
+    {n:"Day 3",tab:"Machine",pill:"str",glutePill:true,time:"40–55 min",
+     note:"Machine + landmine selection — joint-friendly and easy to push. Vertical is a press.",
+     warm:"5 min: bike/row, hip airplanes, light leg press, scap work.",
+     pairs:[
+       {tag:"Superset 1",items:[["A1","Leg Press","P","Squat"],["A2","Landmine Press","P","Push"]]},
+       {tag:"Superset 2",items:[["B1","Good Morning","P","Hinge"],["B2","Chest-Supported Row","P","Pull"]]},
+       {tag:"Superset 3",items:[["C1","DB Push Press","P","Vert"],["C2","Glute Machine","2 × 12","Glute"]]}
+     ],
+     finish:["Sled push / drag <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 20 m</span>","Cable woodchop <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12 / side</span>"],
+     cond12:{cap:"Conditioning · 12 min · if time",title:"Mixed EMOM 12",lines:["Odd min — <span class='r'>12/10</span> cal row","Even min — <span class='r'>10</span> burpees"],sub:"Rest is what's left in each minute. Pick numbers you finish with ~15 s to spare."}},
+
+    {n:"Day 4",tab:"Unilateral",pill:"str",glutePill:true,time:"40–55 min",
+     note:"Unilateral + carry selection — balance, midline and glutes. Vertical is a pull.",
+     warm:"5 min: bike/row, split-stance rocks, glute bridges, band rows.",
+     pairs:[
+       {tag:"Superset 1",items:[["A1","Bulgarian Split Squat","P","Squat"],["A2","Incline DB Press","P","Push"]]},
+       {tag:"Superset 2",items:[["B1","Romanian Deadlift","P","Hinge","rdl"],["B2","Pull-up / 1-Arm DB Row","P","Pull"]]},
+       {tag:"Superset 3",items:[["C1","Lat Pulldown / Pull-up","P","Vert"],["C2","Cable Kickback","2 × 15 / side","Glute"]]}
+     ],
+     finish:["Suitcase carry <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 30 m / side</span>","Dead bug <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12</span>"],
+     cond12:{cap:"Conditioning · 12 min · if time",title:"Hill sprints",lines:["<span class='r'>8–10 × 15 s</span> uphill near-max","walk down to recover (~12 min)"],sub:"Controlled after unilateral work — short and sharp, stop if form drops."}},
+
+    {n:"Day 5",tab:"Barbell B",pill:"str",glutePill:true,time:"40–55 min",
+     note:"Barbell selection again to close the week. Vertical is a press; walking lunges load the glutes.",
+     warm:"5 min: bike/row, banded hips, empty-bar squat + press.",
+     pairs:[
+       {tag:"Superset 1",items:[["A1","Barbell Back Squat","P","Squat","squat"],["A2","DB Bench Press","P","Push"]]},
+       {tag:"Superset 2",items:[["B1","Romanian Deadlift","P","Hinge","rdl"],["B2","Seated Cable Row","P","Pull"]]},
+       {tag:"Superset 3",items:[["C1","Overhead Press","P","Vert","ohp"],["C2","Walking Lunge","2 × 12 / leg","Glute"]]}
+     ],
+     finish:["KB swing / med-ball slam <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 15</span>","Weighted plank <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 40 s</span>"],
+     cond12:{cap:"Conditioning · 12 min · if time",title:"Ski / row / bike intervals",lines:["<span class='r'>5 × 60 s</span> hard / 75 s easy","machine — spare the legs after squats"],sub:"Steady hard efforts, repeatable. Last thing in — skip it if you're cooked."}},
+
+    {n:"Day 6",tab:"Long Run",pill:"run",
+     note:"Saturday long run — easy, conversational pace. Distance climbs with the block, cutback in wk 8.",
+     run:true,
+     sub:"Zone 2 throughout — you should be able to talk. Add 4–6 × 15 s relaxed strides at the end on weeks you feel good. Walk breaks are fine."},
+
+    {n:"Day 7",tab:"Long Walk",pill:"walk",
+     note:"Sunday long walk — pure recovery and base. Different route if you can; add a pack to ruck if you want load.",
+     plain:["Easy walk — <span class='r'>60–90 min</span>","Flat to rolling, nasal breathing, no pace pressure","Optional light mobility after: hips, calves, t-spine"],
+     sub:"This is active recovery, not a workout. Keep it genuinely easy."}
+  ];
+
+  var WEEK=1, cur=0;
+
+  function renderDays(){
+    var c=document.getElementById("wb_days");c.innerHTML="";
+    DAYS.forEach(function(d,i){
+      var b=document.createElement("div");
+      b.className="day-tab"+(i===cur?" active":"");
+      b.innerHTML='<div class="dnum">'+d.n.toUpperCase()+'</div><div class="dname">'+d.tab+'</div>';
+      b.onclick=function(){cur=i;renderDay();renderDays();window.scrollTo({top:0,behavior:"smooth"});};
+      c.appendChild(b);
+    });
+  }
+
+  var PILLTXT={str:"Strength",cond:"Metcon",run:"Long run",walk:"Long walk"};
+
+  function exRow(it){
+    var lead=it[0],nm=it[1],r=it[2],chip=it[3],mk=it[4];
+    var isP=(r==="P");
+    var chipHtml=chip?(chip==="Glute"?'<span class="gt">Glute</span>':'<span class="pt">'+chip+'</span>'):'';
+    var rxTxt;
+    if(isP){
+      var load=mk?computeLoad(mk):null;
+      rxTxt=load?("2 × 7 · "+load+" kg"):rx(WEEK);
+    } else rxTxt=r;
+    return '<div class="ex"><span class="lead">'+lead+'</span>'+
+      '<span class="nm">'+nm+chipHtml+'</span>'+
+      '<span class="rx'+(isP?" anchor":"")+'">'+rxTxt+'</span></div>';
+  }
+
+  function mcCard(m){
+    return '<div class="card metcon"><div class="cap">'+m.cap+'</div>'+
+      '<div class="nm" style="margin-bottom:8px">'+m.title+'</div>'+
+      '<div class="movelist">'+m.lines.join("<br>")+'</div>'+
+      (m.sub?'<div class="sub">'+m.sub+'</div>':'')+'</div>';
+  }
+
+  function renderDay(){
+    var d=DAYS[cur];
+    LOG=loadLog();
+    document.getElementById("wb_sessTitle").textContent=d.n+" · "+d.tab;
+    var pill='<span class="pill '+d.pill+'">'+PILLTXT[d.pill]+'</span>';
+    if(d.glutePill) pill+=' <span class="pill glute">Glute</span>';
+    document.getElementById("wb_sessPill").outerHTML='<span id="wb_sessPill">'+pill+'</span>';
+    var tb=document.getElementById("wb_tbadge");
+    if(d.time){tb.style.display="";tb.textContent=d.time;}else{tb.style.display="none";}
+    document.getElementById("wb_sessNote").innerHTML=d.note;
+
+    var h="";
+    if(d.warm){
+      h+='<div class="block"><div class="block-h"><span class="bt">Warm-up</span><span class="ln"></span></div>'+
+         '<div class="card"><div class="simple m">'+d.warm+'</div></div></div>';
+    }
+    if(d.pairs){
+      h+='<div class="note-rule"><b>Alternate</b> the two lifts in each pair — a set, ~75 s, the other, ~75 s, repeat. '+
+         'Type the weight, tap a set to log the reps you hit.</div>';
+      h+='<div class="block"><div class="block-h"><span class="bt">Patterns · supersets</span><span class="ln"></span></div>';
+      d.pairs.forEach(function(p,pi){
+        h+='<div class="pair"><div class="pairtag">'+p.tag+' · alternate</div>';
+        p.items.forEach(function(it,ii){h+=exRow(it)+logBlock(it,"p"+pi+"i"+ii);});
+        h+='</div>';
+      });
+      h+='</div>';
+    }
+    if(d.cond){h+='<div class="block"><div class="block-h"><span class="bt">Conditioning</span><span class="ln"></span></div>'+mcCard(d.cond)+'</div>';}
+    if(d.mc){h+='<div class="block"><div class="block-h"><span class="bt">Metcon</span><span class="ln"></span></div>'+mcCard(d.mc)+'</div>';}
+    if(d.run){
+      h+='<div class="card"><div class="cap" style="color:var(--run)">This week\u2019s target</div>'+
+         '<div class="bigk">'+RUN[WEEK-1]+' <small>km easy</small></div>'+
+         (d.sub?'<div class="sub">'+d.sub+'</div>':'')+doneChip("run","Mark run done")+'</div>';
+    }
+    if(d.finish){
+      h+='<div class="block"><div class="block-h"><span class="bt">Finisher · core</span><span class="ln"></span></div>'+
+         '<div class="card"><div class="movelist">'+d.finish.map(function(a){return "• "+a;}).join("<br>")+'</div>'+doneChip("finish","Mark complete")+'</div></div>';
+    }
+    if(d.cond12){
+      h+='<div class="block"><div class="block-h"><span class="bt">Conditioning · optional</span><span class="ln"></span></div>'+
+         '<div class="card metcon"><div class="cap">'+d.cond12.cap+'</div><div class="nm" style="margin-bottom:8px">'+d.cond12.title+'</div>'+
+         '<div class="movelist">'+d.cond12.lines.join("<br>")+'</div>'+(d.cond12.sub?'<div class="sub">'+d.cond12.sub+'</div>':'')+doneChip("cond12","Mark complete")+'</div></div>';
+    }
+    if(d.plain){
+      h+='<div class="card"><div class="movelist">'+d.plain.map(function(a){return "• "+a;}).join("<br>")+'</div>'+
+         (d.sub?'<div class="sub">'+d.sub+'</div>':'')+doneChip("walk","Mark walk done")+'</div>';
+    }
+    document.getElementById("wb_cards").innerHTML=h;
+    attachLog();
+  }
+
+  function renderWeek(){
+    document.getElementById("wb_wkVal").textContent=WEEK;
+    document.getElementById("wb_phaseLbl").innerHTML='Phase — <b>'+PHASE[WEEK-1]+'</b>';
+    renderDay();renderTables();
+  }
+
+  function renderTables(){
+    var h='<table class="ptable"><tr><th>Wk</th><th>Sets × reps</th><th>RPE</th><th>Note</th></tr>';
+    WAVE.forEach(function(x,i){
+      h+='<tr class="'+((i+1)===WEEK?"hot":"")+'"><td>'+(i+1)+'</td><td>'+x.s+' × '+x.r+'</td><td>'+x.rpe+'</td><td style="text-align:left;color:var(--faint)">'+(x.note||"")+'</td></tr>';
+    });
+    h+='</table>';
+    document.getElementById("wb_waveTable").innerHTML=h;
+
+    var r='<table class="ptable"><tr>';
+    for(var w=1;w<=8;w++) r+='<th class="">W'+w+'</th>';
+    r+='</tr><tr>';
+    RUN.forEach(function(km,i){r+='<td class="'+((i+1)===WEEK?"":"")+'" style="'+((i+1)===WEEK?"color:var(--amber);background:rgba(224,144,60,.08)":"")+'">'+km+'k</td>';});
+    r+='</tr></table>';
+    document.getElementById("wb_runTable").innerHTML=r;
+  }
+
+  document.getElementById("wb_wkUp").onclick=function(){WEEK=WEEK%8+1;renderWeek();};
+  document.getElementById("wb_wkDown").onclick=function(){WEEK=(WEEK+6)%8+1;renderWeek();};
+
+  var LIB=[
+    ["Squat","Back squat · front squat · leg press · goblet squat · Bulgarian split squat"],
+    ["Hinge","Romanian deadlift · single-leg RDL · good morning · trap-bar deadlift · KB swing"],
+    ["Horizontal push","Barbell bench · DB bench · incline DB · landmine press · weighted push-up"],
+    ["Horizontal pull","Barbell row · seated cable row · chest-supported row · 1-arm DB row · pull-up"],
+    ["Vertical push / pull","Overhead press · DB push press · lat pulldown · pull-up · Z-press"],
+    ["Glute + functional","Hip thrust · glute machine · kickback · abduction · walking lunge · step-up · carries · sled"]
+  ];
+  document.getElementById("wb_mcBody").innerHTML=
+    "Pick one exercise per pattern each day (2 × 7) and rotate the choice day to day so both vertical push and pull get covered and nothing gets stale. Add a glute move and a functional finisher every session:<br><br>"+
+    LIB.map(function(x){return '<b>'+x[0]+'</b><br>'+x[1];}).join("<br><br>");
+
+  /* logger controls (static elements) */
+  document.getElementById("wlMinus").onclick=function(){repCount=Math.max(0,repCount-1);document.getElementById("wlVal").textContent=repCount;};
+  document.getElementById("wlPlus").onclick=function(){repCount++;document.getElementById("wlVal").textContent=repCount;};
+  document.getElementById("wlSave").onclick=function(){if(repsCtx){var st=ensureSet(repsCtx.ex,repsCtx.s);st.done=true;st.reps=repCount;saveLog();}closeReps();renderDay();};
+  document.getElementById("wlClear").onclick=function(){if(repsCtx){var st=ensureSet(repsCtx.ex,repsCtx.s);st.done=false;st.reps=null;saveLog();}closeReps();renderDay();};
+  document.getElementById("wlPop").addEventListener("click",function(ev){if(ev.target===this)closeReps();});
+  document.getElementById("wlReset").onclick=function(){
+    if(confirm("Clear all logged sets for "+DAYS[cur].n+", week "+WEEK+"?")){LOG={};try{localStorage.removeItem(wlKey());}catch(e){}renderDay();}
+  };
+  var tId=null,tEnd=0;
+  function paintT(){var disp=document.getElementById("wlTdisp");var left=Math.max(0,Math.round((tEnd-Date.now())/1000));
+    disp.textContent=left>0?(left+"s"):"done";disp.classList.toggle("run",left>0);
+    if(left<=0&&tId){clearInterval(tId);tId=null;try{if(navigator.vibrate)navigator.vibrate(200);}catch(e){}
+      setTimeout(function(){disp.textContent="rest";disp.classList.remove("run");},1600);}}
+  document.querySelectorAll("#wlTimer button[data-sec]").forEach(function(b){
+    b.onclick=function(){tEnd=Date.now()+(+b.dataset.sec)*1000;if(tId)clearInterval(tId);paintT();tId=setInterval(paintT,250);};
+  });
+
+  renderMaxes();renderDays();renderWeek();
+})();
+
+</script>
+
+<script>
+(function(){
+  var KEY='bl:prog';
+  var gz=document.getElementById('view-gz'), wb=document.getElementById('view-wb');
+  var btns=document.querySelectorAll('#progswitch button');
+  function show(v){
+    var isWB=(v==='wb');
+    if(gz)gz.style.display=isWB?'none':'';
+    if(wb)wb.style.display=isWB?'':'none';
+    btns.forEach(function(b){b.classList.toggle('on', b.dataset.v===v);});
+    try{localStorage.setItem(KEY,v);}catch(e){}
+    window.scrollTo(0,0);
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.v);});});
+  var start='gz'; try{var s=localStorage.getItem(KEY); if(s)start=s;}catch(e){}
+  show(start);
 })();
 </script>
 </body>
