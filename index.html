@@ -1136,7 +1136,7 @@
 
   /* 1RM → target load. RPE-to-%1RM estimate at 7 reps (RTS-style chart) */
   var PCT={"6":0.658,"7":0.691,"7.5":0.707,"8":0.723,"8.5":0.739,"9":0.755};
-  var MAXKEYS=[["squat","Back Squat"],["bench","Bench Press"],["rdl","Romanian Deadlift"],["row","Barbell Row"],["ohp","Overhead Press"]];
+  var MAXKEYS=[["squat","Back Squat"],["bench","Bench Press"],["deadlift","Deadlift"],["rdl","Romanian Deadlift"],["row","Barbell Row"],["ohp","Overhead Press"]];
   var MAXES=(function(){try{return JSON.parse(localStorage.getItem("wb_maxes")||"{}");}catch(e){return {};}})();
   function saveMaxes(){try{localStorage.setItem("wb_maxes",JSON.stringify(MAXES));}catch(e){}}
   function round2(x){return Math.round(x/2.5)*2.5;}
@@ -1228,7 +1228,8 @@
        {tag:"Superset 2",items:[["B1","Romanian Deadlift","P","Hinge","rdl"],["B2","Barbell Row","P","Pull","row"]]},
        {tag:"Superset 3",items:[["C1","Overhead Press","P","Vert","ohp"],["C2","Barbell Hip Thrust","2 × 12","Glute"]]}
      ],
-     finish:["Farmer carry <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 30 m</span> heavy","Hanging leg raise <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12</span>"],
+     finish:["Farmer carry <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 30 m</span> heavy","Hanging leg raise <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12</span>","Side plank <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 30 s / side</span>"],
+     cable:[["1","Cable Triceps Pushdown","3 × 12","Triceps"],["2","Cable Pull-back","3 × 15","Rear delt"],["3","Cable Shrug","3 × 15","Traps"],["4","Cable Biceps Curl","3 × 12","Biceps"]],
      cond12:{cap:"Conditioning · 12 min · if time",title:"Bike / row sprints",lines:["12 min — <span class='r'>30 s</span> hard / <span class='r'>30 s</span> easy","machine, not running — legs already squatted"],sub:"Optional finisher. Keep the hard efforts strong, not sloppy."}},
 
     {n:"Day 2",tab:"Dumbbell",pill:"str",glutePill:true,time:"40–55 min",
@@ -1239,18 +1240,20 @@
        {tag:"Superset 2",items:[["B1","Single-Leg RDL","P","Hinge"],["B2","Seated Cable Row","P","Pull"]]},
        {tag:"Superset 3",items:[["C1","Lat Pulldown","P","Vert"],["C2","Cable Hip Abduction","2 × 15 / side","Glute"]]}
      ],
-     finish:["KB swing <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 15</span>","Pallof press <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12 / side</span>"],
+     finish:["KB swing <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 15</span>","Pallof press <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12 / side</span>","Reverse crunch <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 15</span>"],
+     cable:[["1","Cable Triceps Pushdown","3 × 12","Triceps"],["2","Cable Pull-back","3 × 15","Rear delt"],["3","Cable Shrug","3 × 15","Traps"],["4","Cable Biceps Curl","3 × 12","Biceps"]],
      cond12:{cap:"Conditioning · 12 min · if time",title:"Run sprints",lines:["<span class='r'>8 × 20 s</span> hard run","walk back / ~70 s between"],sub:"Lighter leg day — the best slot for true running sprints. Full effort each rep."}},
 
-    {n:"Day 3",tab:"Machine",pill:"str",glutePill:true,time:"40–55 min",
-     note:"Machine + landmine selection — joint-friendly and easy to push. Vertical is a press.",
-     warm:"5 min: bike/row, hip airplanes, light leg press, scap work.",
+    {n:"Day 3",tab:"Deadlift",pill:"str",glutePill:true,time:"45–60 min",
+     note:"Deadlift day. Machine/landmine picks for squat and press keep axial load low, so the deadlift is the one heavy pull. Vertical is a press.",
+     warm:"5 min: bike/row, hip airplanes, light leg press, then build to the first deadlift.",
      pairs:[
        {tag:"Superset 1",items:[["A1","Leg Press","P","Squat"],["A2","Landmine Press","P","Push"]]},
-       {tag:"Superset 2",items:[["B1","Good Morning","P","Hinge"],["B2","Chest-Supported Row","P","Pull"]]},
+       {tag:"Superset 2",items:[["B1","Deadlift","P","Hinge","deadlift"],["B2","Chest-Supported Row","P","Pull"]]},
        {tag:"Superset 3",items:[["C1","DB Push Press","P","Vert"],["C2","Glute Machine","2 × 12","Glute"]]}
      ],
-     finish:["Sled push / drag <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 20 m</span>","Cable woodchop <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12 / side</span>"],
+     finish:["Sled push / drag <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 20 m</span>","Cable woodchop <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12 / side</span>","Hollow hold <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 30 s</span>"],
+     cable:[["1","Cable Triceps Pushdown","3 × 12","Triceps"],["2","Cable Pull-back","3 × 15","Rear delt"],["3","Cable Shrug","3 × 15","Traps"],["4","Cable Biceps Curl","3 × 12","Biceps"]],
      cond12:{cap:"Conditioning · 12 min · if time",title:"Mixed EMOM 12",lines:["Odd min — <span class='r'>12/10</span> cal row","Even min — <span class='r'>10</span> burpees"],sub:"Rest is what's left in each minute. Pick numbers you finish with ~15 s to spare."}},
 
     {n:"Day 4",tab:"Unilateral",pill:"str",glutePill:true,time:"40–55 min",
@@ -1261,7 +1264,8 @@
        {tag:"Superset 2",items:[["B1","Romanian Deadlift","P","Hinge","rdl"],["B2","Pull-up / 1-Arm DB Row","P","Pull"]]},
        {tag:"Superset 3",items:[["C1","Lat Pulldown / Pull-up","P","Vert"],["C2","Cable Kickback","2 × 15 / side","Glute"]]}
      ],
-     finish:["Suitcase carry <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 30 m / side</span>","Dead bug <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12</span>"],
+     finish:["Suitcase carry <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 30 m / side</span>","Dead bug <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 12</span>","Cable crunch <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 15</span>"],
+     cable:[["1","Cable Triceps Pushdown","3 × 12","Triceps"],["2","Cable Pull-back","3 × 15","Rear delt"],["3","Cable Shrug","3 × 15","Traps"],["4","Cable Biceps Curl","3 × 12","Biceps"]],
      cond12:{cap:"Conditioning · 12 min · if time",title:"Hill sprints",lines:["<span class='r'>8–10 × 15 s</span> uphill near-max","walk down to recover (~12 min)"],sub:"Controlled after unilateral work — short and sharp, stop if form drops."}},
 
     {n:"Day 5",tab:"Barbell B",pill:"str",glutePill:true,time:"40–55 min",
@@ -1272,7 +1276,8 @@
        {tag:"Superset 2",items:[["B1","Romanian Deadlift","P","Hinge","rdl"],["B2","Seated Cable Row","P","Pull"]]},
        {tag:"Superset 3",items:[["C1","Overhead Press","P","Vert","ohp"],["C2","Walking Lunge","2 × 12 / leg","Glute"]]}
      ],
-     finish:["KB swing / med-ball slam <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 15</span>","Weighted plank <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 40 s</span>"],
+     finish:["KB swing / med-ball slam <span style='color:var(--faint)'>(functional)</span> — <span class='r'>3 × 15</span>","Weighted plank <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 40 s</span>","Ab-wheel rollout <span style='color:var(--faint)'>(core)</span> — <span class='r'>3 × 10</span>"],
+     cable:[["1","Cable Triceps Pushdown","3 × 12","Triceps"],["2","Cable Pull-back","3 × 15","Rear delt"],["3","Cable Shrug","3 × 15","Traps"],["4","Cable Biceps Curl","3 × 12","Biceps"]],
      cond12:{cap:"Conditioning · 12 min · if time",title:"Ski / row / bike intervals",lines:["<span class='r'>5 × 60 s</span> hard / 75 s easy","machine — spare the legs after squats"],sub:"Steady hard efforts, repeatable. Last thing in — skip it if you're cooked."}},
 
     {n:"Day 6",tab:"Long Run",pill:"run",
@@ -1359,6 +1364,12 @@
     if(d.finish){
       h+='<div class="block"><div class="block-h"><span class="bt">Finisher · core</span><span class="ln"></span></div>'+
          '<div class="card"><div class="movelist">'+d.finish.map(function(a){return "• "+a;}).join("<br>")+'</div>'+doneChip("finish","Mark complete")+'</div></div>';
+    }
+    if(d.cable){
+      h+='<div class="block"><div class="block-h"><span class="bt">Cable finisher</span><span class="ln"></span></div>'+
+         '<div class="pair"><div class="pairtag">Arms · rear delts · traps — circuit, short rest</div>';
+      d.cable.forEach(function(it,ci){h+=exRow(it)+logBlock(it,"cb"+ci);});
+      h+='</div></div>';
     }
     if(d.cond12){
       h+='<div class="block"><div class="block-h"><span class="bt">Conditioning · optional</span><span class="ln"></span></div>'+
